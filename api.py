@@ -51,5 +51,9 @@ if __name__ == '__main__':
     '2B-58D181C3-13E6053D-939BB278',
     '3F24705B90D351C490B7D21EF1B99C1504EF6227'
   )
+  # public
   print api.test()
+  # private
   print api.info()
+  # with params
+  print api.orders(catalog=0, since_id=1, count=20, order='DESC')
