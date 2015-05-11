@@ -13,17 +13,16 @@ class API(object):
   timeout = 30
   api_base = 'https://bitbays.com/api/'
 
-  def __init__(self, key, secret, wait_for_nonce=False, version='v1'):
+  def __init__(self, key, secret, version='v1'):
     self._key = key
     self._secret = secret
-    self._wait_for_nonce = wait_for_nonce
     self._methods = self.public_methods + self.private_methods
     self._api_base = self.api_base + version
+    self._counter = int(time.time() * 1000)
 
   def _nonce(self):
-    if self._wait_for_nonce:
-      time.sleep(1)
-    return int(time.time())
+    self._counter += 1
+    return self._counter
 
   def _sign(self, params):
     return hmac.new(self._secret, params, digestmod=hashlib.sha512).hexdigest()
