@@ -9,7 +9,7 @@ class API(object):
   '''
   '''
   public_methods = ['ticker', 'trades', 'depth', 'test']
-  private_methods = ['info', 'orders', 'transactions', 'trade', 'cancel']
+  private_methods = ['info', 'orders', 'transactions', 'trade', 'cancel', 'order']
   timeout = 30
   api_base = 'https://bitbays.com/api/'
 
